@@ -1,0 +1,22 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: rag-multimodal-chat
+  servlet:
+    multipart:
+      max-file-size: 25MB
+      max-request-size: 30MB
+
+app:
+  ai:
+    base-url: ${APP_AI_BASE_URL:https://api.openai.com/v1}
+    api-key: ${APP_AI_API_KEY:}
+    chat-model: ${APP_AI_CHAT_MODEL:gpt-4.1-mini}
+    vision-model: ${APP_AI_VISION_MODEL:gpt-4.1-mini}
+    embedding-model: ${APP_AI_EMBEDDING_MODEL:text-embedding-3-small}
+    embedding-dimensions: ${APP_AI_EMBEDDING_DIMENSIONS:1536}
+    temperature: ${APP_AI_TEMPERATURE:0.2}
+  knowledge:
+    upload-dir: ${APP_KNOWLEDGE_UPLOAD_DIR:data/uploads}

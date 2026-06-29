@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RAG Multimodal Chat</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="chat-panel">
+      <header class="topbar">
+        <div>
+          <h1>RAG 多模态对话</h1>
+          <p id="statusText">正在连接服务...</p>
+        </div>
+        <label class="switch">
+          <input id="ragToggle" type="checkbox" checked>
+          <span>RAG</span>
+        </label>
+      </header>
+
+      <div id="messages" class="messages" aria-live="polite"></div>
+
+      <section class="composer">
+        <div id="imagePreview" class="image-preview"></div>
+        <textarea id="messageInput" rows="3" placeholder="输入问题，或上传图片后提问..."></textarea>
+        <div class="composer-actions">
+          <label class="icon-button" title="添加图片">
+            <input id="imageInput" type="file" accept="image/*" multiple>
+            <span>＋图</span>
+          </label>
+          <button id="clearButton" class="secondary" type="button">清空</button>
+          <button id="sendButton" type="button">发送</button>
+        </div>
+      </section>
+    </section>
+
+    <aside class="side-panel">
+      <section class="panel-block">
+        <div class="block-head">
+          <h2>知识库</h2>
+          <button id="refreshDocs" class="small" type="button">刷新</button>
+        </div>
+        <label id="dropZone" class="upload-zone">
+          <input id="docInput" type="file" accept=".txt,.md,.csv,.json,.pdf" multiple>
+          <strong>上传文档</strong>
+          <span>支持 txt、md、csv、json、pdf</span>
+        </label>
+        <div id="documents" class="documents"></div>
+      </section>
+
+      <section class="panel-block">
+        <h2>检索测试</h2>
+        <div class="search-row">
+          <input id="searchInput" type="text" placeholder="输入检索关键词">
+          <button id="searchButton" class="small" type="button">搜索</button>
+        </div>
+        <div id="searchResults" class="search-results"></div>
+      </section>
+    </aside>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>
